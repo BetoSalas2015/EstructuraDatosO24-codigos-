@@ -3,23 +3,24 @@
 #include <stdio.h>
 
 int main()
-{	
-    float pi = 3.14159;
-    int costo = 60;
-    int h, m;
-    
-    //printf("Dame la hora: ");
-    //scanf("%d:%d", &h, &m);
-    
-    printf("%d:%d\n", h, m);
-    
-    if(0)
-    {
-		printf("Esto es verdad\n");
-	}		
-	else
-		printf("Esto es falso\n");
-}
+{
+	FILE *archivo;
+	
+	archivo = fopen("archivo.txt", "w");
+	if(archivo == NULL)
+	{
+		printf("El archivo no se pudo crear\n");
+		exit(1);
+	}
+	
+	//printf("Saludos Programas!!!!!");
+	fprintf(archivo, "Saludos Programas otra vez!!!!!");
+	
+	fclose(archivo);
+	
+}	
+
+
 
 
 
