@@ -8,26 +8,26 @@ int main()
 	FILE *escritura;
 	char cadena[80];
 	
-	lectura = fopen("Programa.c", "r");
-	if(lectura == NULL)
+	char nombre[18] ;
+	int  edad;
+	float estatura;
+ 
+	escritura = fopen("datos.dat", "r");
+	if(escritura == NULL)
 	{
 		printf("El archivo no se pudo leer\n");
 		return 1;
 	}
-	escritura = fopen("Copia de Programa.c", "w" );
-	if(escritura == NULL)
-	{
-		printf("El archivo no se pudo crear\n");
-		return 1;
-	}
 	
-	while( !feof(lectura) ) 
-	{
-		fgets(cadena,80,lectura);
-		printf("%s", cadena);
-		fprintf(escritura,"%s", cadena);
-	}
-	fclose(lectura);
+	//fwrite(&nombre, 18, 1, escritura);
+	//fwrite(&edad, 4, 1, escritura);
+	//fwrite(&estatura, 8, 1, escritura);
+	
+	fread(&nombre, 18, 1, escritura);
+	fread(&edad, 4, 1, escritura);
+	fread(&estatura, 8, 1, escritura);
+	printf(" %s - %d - %f\n",nombre, edad, estatura);
+	//fclose(lectura);
 	fclose(escritura);
 	
 }	
