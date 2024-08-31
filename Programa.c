@@ -1,34 +1,35 @@
 //  Programa que copia una archivo de texto
 	
 #include <stdio.h>
+#include <string.h>
+
+struct Persona
+{
+	char nombre[30];
+	int edad; 
+	float altura;
+	char sexo;
+};
+
+typedef struct Persona persona;
 
 int main()
 {
-	FILE *lectura;
-	FILE *escritura;
-	char cadena[80];
+	int costo = 60;
+	persona miPersona;
 	
-	char nombre[18] ;
-	int  edad;
-	float estatura;
- 
-	escritura = fopen("datos.dat", "r");
-	if(escritura == NULL)
-	{
-		printf("El archivo no se pudo leer\n");
-		return 1;
-	}
+	printf("Dame tu edad: ");
+	scanf("%d", &miPersona.edad);
+	printf("Dame la altura: ");
+	scanf("%f", &miPersona.altura);
+	printf("Dame el sexo: ");
+	fflush(stdin);
+	miPersona.sexo = getchar();  // o usar -> scanf("%c", &miPersona.sexo)
+	printf("Dame tu nombre: ");
+	fflush(stdin);
+	gets(miPersona.nombre);
+	printf("%s, Edad: %d, sexo: %c, Estatura: %.2f \n", miPersona.nombre, miPersona.edad, miPersona.sexo, miPersona.altura);
 	
-	//fwrite(&nombre, 18, 1, escritura);
-	//fwrite(&edad, 4, 1, escritura);
-	//fwrite(&estatura, 8, 1, escritura);
-	
-	fread(&nombre, 18, 1, escritura);
-	fread(&edad, 4, 1, escritura);
-	fread(&estatura, 8, 1, escritura);
-	printf(" %s - %d - %f\n",nombre, edad, estatura);
-	//fclose(lectura);
-	fclose(escritura);
-	
+	return 0;
 }	
 
