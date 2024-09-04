@@ -3,7 +3,11 @@
 #include <stdio.h>
 #include <string.h>
 
-
+struct nombrePersona 
+{
+	char nombre[15];
+	char apellidos[15];
+};
 
 struct Persona
 {
@@ -12,11 +16,7 @@ struct Persona
 	float altura;
 	char sexo;
 };
-struct nombrePersona 
-{
-	char nombre[15];
-	char apellidos[15];
-};
+
 typedef struct Persona persona;
 
 int main()
