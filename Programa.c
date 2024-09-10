@@ -1,7 +1,11 @@
 //  Programa que copia una archivo de texto
 	
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+
+#define pausa system("pause")
+#define cls system("cls")
 
 struct nombrePersona 
 {
@@ -30,6 +34,7 @@ int main()
 	
 	printf("Dame tu edad: ");
 	scanf("%d", &miPersona[pos].edad);
+	cls;
 	printf("Dame la altura: ");
 	scanf("%f", &miPersona[pos].altura);
 	printf("Dame el sexo: ");
@@ -42,6 +47,8 @@ int main()
 	fflush(stdin);
 	gets(miPersona[pos].nombre.apellidos);
 	printf("%s %s, Edad: %d, sexo: %c, Estatura: %.2f \n", miPersona[pos].nombre.nombre, miPersona[pos].nombre.apellidos, miPersona[pos].edad, miPersona[pos].sexo, miPersona[pos].altura);
+	
+
 	
 	return 0;
 }	
