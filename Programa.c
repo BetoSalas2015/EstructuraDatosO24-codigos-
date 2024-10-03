@@ -36,6 +36,24 @@ float pi(int i)
 			return pi(i-1) -  4.0 / (2 * i - 1); 
 }
 
+//  (a * b) = a						si b = 1
+//  (a * b) = a + (a * b-1)			Si b > 1
+int multiplicacion( int a, int b) {
+}
+
+//   x^y = 1						Si y = 0
+//   x^y = x * x^y-1				Si y > 0
+int potencia(int x, int y) {
+}
+
+//  Fi = 1							Si i = 0  o i = 1
+//  Fi = Fi-1 + Fi-2				Si i > 1
+int Fibonacci(int i) {
+}
+
+
+void hanoi(int n, char desde, char hasta, char aux) {
+}
 
 int main()
 {
@@ -45,5 +63,11 @@ int main()
 	printf("Pi a cuantos terminos? ");
 	scanf("%d", &i);
 	for(j = 1; j < i; j++)
-		printf("Pi a %d terminos es %6.4f\n", j, pi(j));
+		printf("Pi a %d terminos es %7.5f\n", j, pi(j));
+		
+		
+	hanoi(3, 'A', 'C', 'B');	
+	
+	
+	
 }
