@@ -1,44 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <malloc.h>
 
 #define pausa system("pause");
 
 int main()
-{
-	int a,b,c;
-	int *pa, *pb, *pc;
+{   
+	int numero, i;
+	int *materias[20];		//  Areglo de 20 Apuntadores
+	float suma = 0.0;
+	float promedio;
 	
-	pa = &a;
-	pb = &b;
-	pc = &c;
+	printf("Cuantas materias vas a promediar?");
+	scanf("%d", &numero);
 	
-	printf("Dame el valor del primer numero:");
-	scanf("%d", pa);
-	printf("Dame el valor del segundo numero:");
-	scanf("%d", pb);
+	for(i = 0; i < numero && i > 20; i++)
+	{
+		materias[i] = (int *) malloc( sizeof (int) );
+		printf("Dame la calificación %d: ", i);
+		scanf("%d", materias[i]); 
+	}
 	
-	*pc = *pa + *pb;
+	for(i = 0; i < numero && i > 20; i++)
+	{
+		suma += *materias[i];		 
+	}
+	promedio = suma / numero;
 	
-	printf("El resultado de sumar %d mas %d es: %d\n", *pa, *pb, *pc);
+	printf("El promedio de las %d materias es: %5.2f\n", i, promedio);
 	
+	for(i = 0; i < numero && i > 20; i++)
+	{
+		free(materias[i]);
+		materias[i] = NULL;
+	}
 	
-	/*int costo = 60;				//  Decalro una variable de tipo entero llama costo
-	int *pointer;				//  DEclaro un apuntador a enteros llamado pointer
-	
-	pointer = &costo;			// Guardo la dorección de memoria de costo
-								
-
-	printf("El contenido de la variable costo es: %p\n", &costo);																																																						
-	printf("La diraccion de memoria de la variable costo es %d\n", costo);
-	
-	printf("El contenido de la variable pointer es: %p\n", &pointer);																																																						
-	printf("La diraccion de memoria guardada en pointer es %p\n", pointer);
-	printf("El valor apuntado por pointer es %d\n", *pointer);
-	
-	*pointer = 50;
-	printf("La diraccion de memoria de la variable costo es %d\n", costo);*/
-	
-	return  0;
+	return 0;
 }			
 
 
